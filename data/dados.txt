@@ -1,0 +1,47 @@
+# Dados simulados da colônia
+# Unidade padrão de energia: kWh por ciclo de 3 horas
+
+[CONFIGURACOES]
+capacidade_total_bateria_kwh=300
+ciclo_horas=3
+limite_bateria_alerta_pct=35
+limite_bateria_critico_pct=25
+limite_comunicacao_alerta_pct=70
+limite_comunicacao_critico_pct=40
+tolerancia_bateria_pct=1
+limite_previsao_alerta_pct=35
+limite_previsao_critico_pct=25
+percentual_reducao_energia=30
+percentual_reducao_centro_logistico=50
+percentual_reducao_alimentacao=20
+tolerancia_consumo_kwh=80
+
+[MODULOS]
+nome;categoria;prioridade;estado_binario;pode_desligar;consumo_kwh
+habitacao;suporte_vida;1;1;0;150
+alimentacao;suporte_vida;2;1;1;65
+suporte_medico;suporte_vida;3;1;0;45
+centro_logistico;operacao;4;1;1;35
+energia;energia;5;1;0;25
+laboratorio;operacao;6;1;1;60
+
+[TELEMETRIA]
+horario;solar_kwh;eolica_kwh;bateria_kwh;bateria_pct;consumo_total_kwh;temperatura_interna_c;temperatura_externa_c;radiacao_msv;pressao_kpa;vento_kmh;sensores_funcionais;qualidade_comunicacao_pct
+06:00;80;5;210;70;250;21;-50;0.18;380;15;1;92
+09:00;78;5;189;63;260;22;-45;0.22;375;18;1;88
+12:00;55;30;150;50;280;25;-18;0.34;410;105;1;74
+15:00;20;32;120;40;320;15;-78;0.56;290;125;0;62
+18:00;8;28;96;72;380;28;-12;0.62;460;170;1;35
+21:00;0;4;72;24;380;23;-65;0.42;390;12;1;80
+
+[EVENTOS]
+horario;tipo;modulo;severidade;descricao
+06:05;telemetria;energia;normal;Início do ciclo com matriz renovável estável
+09:10;ajuste;habitacao;normal;Controle térmico mantido em faixa segura
+12:20;tempestade;energia;alerta;Poeira reduz captação solar e aumenta carga nas turbinas
+13:00;manutencao;laboratorio;alerta;Rotina não essencial aguardando disponibilidade energética
+15:05;sensor;centro_logistico;critico;Sensores externos reportaram leitura insegura
+15:40;radiacao;habitacao;critico;Radiação acima do limite crítico e abrigo recomendado
+18:10;vento;energia;critico;Vento acima do limite mecânico das turbinas
+18:15;corte;laboratorio;alerta;Laboratório marcado como primeiro candidato a corte
+21:05;energia;energia;critico;Reserva de bateria abaixo do limite crítico
