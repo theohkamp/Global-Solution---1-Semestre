@@ -213,6 +213,8 @@ Entre as recomendações automáticas apresentadas pelo sistema estão:
 
 ## Link do vídeo
 
+https://youtu.be/qZhfVylFG1k
+
 ## Conclusões e aprendizados
 
 O projeto demonstrou como estruturas fundamentais da linguagem Python podem ser combinadas para interpretar dados operacionais, detectar riscos e fornecer recomendações automáticas. A equipe aplicou listas, fila, pilha, dicionários, hierarquia, matriz, lógica booleana e regressão linear simples em um cenário de monitoramento espacial.
